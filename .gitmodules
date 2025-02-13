@@ -1,0 +1,3 @@
+[submodule "GTFS2NeTEx-converter"]
+	path = GTFS2NeTEx-converter
+	url = https://github.com/noi-techpark/GTFS2NeTEx-converter

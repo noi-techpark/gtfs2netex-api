@@ -1,0 +1,50 @@
+# General
+.DS_Store
+
+# Editors
+.idea
+*.iws
+*.iml
+*.ipr
+.vscode
+
+# Project
+/.env
+.settings
+.project
+
+# Golang default ignore list
+# https://github.com/github/gitignore/blob/main/Go.gitignore
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Golang air hot reload
+tmp
+src/tmp
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+# Go workspace file
+go.work
+
+# output file of validation script
+test/validate.xml
+
+# Libreoffice lock files
+.~lock.*
+
+__debug_bin*
+
+# build executable
+src/main

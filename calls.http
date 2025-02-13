@@ -1,0 +1,27 @@
+@host=http://localhost:8080
+
+POST {{host}}/
+Content-Type: multipart/form-data; boundary=---Boundary
+
+-----Boundary
+Content-Disposition: form-data; name="nuts"
+
+IT:ITH10
+-----Boundary
+Content-Disposition: form-data; name="vat"
+
+12341234123
+-----Boundary
+Content-Disposition: form-data; name="version"
+
+2.0.1
+-----Boundary
+Content-Disposition: form-data; name="az"
+
+TEST
+-----Boundary
+Content-Disposition: form-data; name="file"; filename="in.gtfs"
+Content-Type: application/zip
+
+< ./testdata/skyalps-flight-data.zip
+-----Boundary--
