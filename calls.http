@@ -23,5 +23,5 @@ TEST
 Content-Disposition: form-data; name="file"; filename="in.gtfs"
 Content-Type: application/zip
 
-< ./testdata/skyalps-flight-data.zip
+< ./src/testdata/skyalps-flight-data.zip
 -----Boundary--
