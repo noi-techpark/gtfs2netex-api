@@ -1,6 +1,6 @@
 module opendatahub.com/gtfs2netex-api
 
-go 1.23.6
+go 1.23
 
 require github.com/gin-contrib/cors v1.7.3
 
