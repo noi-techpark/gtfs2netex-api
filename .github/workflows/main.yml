@@ -2,7 +2,7 @@ name: CI/CD
 
 on:
   push:
-    tags: [ v*]
+    tags: [v*]
 
 env:
   PROJECT_NAME: gtfs2netex-api
@@ -11,7 +11,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
@@ -32,4 +32,5 @@ jobs:
           target: ${{ env.DOCKER_TAG }}
           tags: |
             latest
+            ${{ github.ref_name }}
           
