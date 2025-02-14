@@ -2,7 +2,7 @@ name: CI/CD
 
 on:
   push:
-    tags: [v*]
+    tags: ['*']
 
 env:
   PROJECT_NAME: gtfs2netex-api
