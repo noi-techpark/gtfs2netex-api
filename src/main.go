@@ -1,7 +1,6 @@
 package main
 
 import (
-	"compress/gzip"
 	"fmt"
 	"io"
 	"log"
@@ -69,7 +68,7 @@ func main() {
 			fmt.Println(e)
 		}
 
-		matches, err := filepath.Glob(filepath.Join(workdir, "*.xml.gz"))
+		matches, err := filepath.Glob(filepath.Join(workdir, "*.xml"))
 		if err != nil {
 			log.Panic(err)
 		}
@@ -83,18 +82,12 @@ func main() {
 			log.Panic(err)
 		}
 
-		gz, err := gzip.NewReader(f)
-		if err != nil {
-			log.Panic(err)
-		}
-		defer gz.Close()
-
-		unzipped, err := io.ReadAll(gz)
+		netex, err := io.ReadAll(f)
 		if err != nil {
 			log.Panic(err)
 		}
 
-		ctx.Data(http.StatusOK, "application/xml", unzipped)
+		ctx.Data(http.StatusOK, "application/xml", netex)
 		log.Println("Incoming request")
 	})
 
