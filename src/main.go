@@ -25,13 +25,15 @@ type ConvertReq struct {
 }
 
 func main() {
-	g := gin.New()
+	g := gin.Default()
 
-	g.Use(gin.Recovery())
 	g.Use(cors.Default())
+
+	g.GET("/health", func(ctx *gin.Context) { ctx.Status(http.StatusOK) })
 
 	g.POST("/", func(ctx *gin.Context) {
 		var recObj ConvertReq
+		log.Println("Incoming request")
 
 		if err := ctx.ShouldBind(&recObj); err != nil {
 			ctx.String(http.StatusBadRequest, fmt.Sprintf("err: %s", err.Error()))
@@ -93,7 +95,10 @@ func main() {
 		}
 
 		ctx.Data(http.StatusOK, "application/xml", unzipped)
+		log.Println("Incoming request")
 	})
+
+	log.Println("gtfs2netex-api starting up an ready to serve...")
 
 	g.Run()
 }

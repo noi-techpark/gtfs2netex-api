@@ -20,5 +20,6 @@ COPY GTFS2NeTEx-converter .
 RUN pip install -r requirements.txt
 WORKDIR /app
 COPY --from=build-env /app/main .
-ENTRYPOINT ["main", "/converter/GTFS2NeTEx-converter.py"]
+ENV GIN_MODE=release
+ENTRYPOINT ["/app/main", "/converter/GTFS2NeTEx-converter.py"]
 
